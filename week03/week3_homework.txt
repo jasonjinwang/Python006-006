@@ -1,0 +1,21 @@
+
+#字符集配置项
+[client]
+default_character_set = utf8mb4
+[mysql]
+default_character_set = utf8mb4
+
+[mysqld]
+character-set-server = utf8mb4
+init_connect = 'SET NAMES utf8mb4' #初始化连接
+character_set_client_handshake = FALSE
+collation_server = utf8mb4_unicode_ci
+
+
+#验证字符集
+mysql > show variables like '%character%';
+mysql > show variables like 'collation%';
+
+#增加远程用户
+mysql> GRANT ALL PRIVILEGES ON testdb.* TO 'testuser'@'%' IDENTIFIED BY 'testpass';
+
